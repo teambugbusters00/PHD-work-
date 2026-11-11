@@ -5,7 +5,7 @@ from pathlib import Path
 DB=Path("experiments.jsonl")
 def add(a):
  row={"id":datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%S%fZ"),"title":a.title,"hypothesis":a.hypothesis,"method":a.method,"result":a.result,"created_at":datetime.now(timezone.utc).isoformat()}
- with DB.open("a",encoding="utf-8") as f:f.write(json.dumps(row,ensure_ascii=False)+"\\n")
+ with DB.open("a",encoding="utf-8") as f:f.write(json.dumps(row,ensure_ascii=False)+"\n")
  print("Saved",row["id"])
 def listing():
  if not DB.exists():print("No experiments logged.");return
